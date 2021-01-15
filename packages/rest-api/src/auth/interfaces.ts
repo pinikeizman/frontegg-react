@@ -15,7 +15,6 @@ export type ILoginResponse = IUserProfile & {
   expires: string;
   expiresIn: number;
   mfaToken?: string; // for multi-factor authentication
-
   emailVerified?: boolean;
 };
 
@@ -159,7 +158,6 @@ export interface ITenantApiTokensData {
 export interface IUpdateUserApiTokensData {
   description: string;
 }
-
 export interface IUpdateTenantApiTokensData {
   description: string;
   roleIds: string[];
@@ -171,4 +169,17 @@ export interface IDeleteApiToken {
 
 export interface IUpdateSamlRoles {
   roleIds: Array<string>;
+}
+
+export type IGetTenantApiTokenCreator = { userId: string };
+
+export interface IGetTenantApiTokenCreatorResponse {
+  id: string;
+  name: string;
+  deletedAt: null;
+  metadata: any;
+  tenantId: string;
+  vendorId: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
